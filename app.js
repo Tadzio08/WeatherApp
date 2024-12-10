@@ -1,17 +1,15 @@
-// Select DOM elements
+
 const weatherForm = document.querySelector(".weatherForm");
 const cityInput = document.querySelector(".cityInput");
 const card = document.getElementById("weatherCard");
 const weatherEffectContainer = document.getElementById("weatherEffect");
-const apiKey = "08a9f8053851acd4207d65e31d43750a"; // Replace with your actual API key
+const klucz = "08a9f8053851acd4207d65e31d43750a"; 
 
-// Initialize Weather Effects
+
 function createWeatherEffect() {
     // Clear existing effects
     weatherEffectContainer.innerHTML = '';
 
-    // For demonstration, we'll randomly choose weather effects
-    // In a real app, you would set this based on actual weather data
     const weatherTypes = ['snow', 'rain', 'wind', 'clouds'];
     // For initial load, set a default effect
     addSnowflakes(50);
@@ -20,7 +18,7 @@ function createWeatherEffect() {
     addClouds(5);
 }
 
-// Functions to add different weather effects
+
 function addSnowflakes(count) {
     for (let i = 0; i < count; i++) {
         const flake = document.createElement("div");
@@ -64,7 +62,7 @@ function addClouds(count) {
     }
 }
 
-// Handle Form Submission
+
 weatherForm.addEventListener("submit", async event => {
     event.preventDefault();
 
@@ -87,7 +85,7 @@ weatherForm.addEventListener("submit", async event => {
 });
 
 async function getWeatherData(city) {
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${apiKey}`;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${klucz}`;
 
     const response = await fetch(apiUrl);
 
